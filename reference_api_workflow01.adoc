@@ -1,0 +1,410 @@
+---
+sidebar: sidebar 
+permalink: reference_api_workflow01.html 
+keywords: rest api, deploy rest api, rest, workflow, create cluster, curl, json 
+summary: Sie können einen ONTAP Select Cluster mit einem einzelnen Knoten auf einem von VMware ESXi verwalteten Host, der von vCenter gemanagt wird, bereitstellen. Der Cluster wird mit einer Evaluierungslizenz erstellt. 
+---
+= Workflow 1: Erstellen eines ONTAP Select Einzelknoten-Evaluierungsclusters auf ESXi
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können einen ONTAP Select Cluster mit einem einzelnen Knoten auf einem von VMware ESXi verwalteten Host, der von vCenter gemanagt wird, bereitstellen. Der Cluster wird mit einer Evaluierungslizenz erstellt.
+
+Der Workflow zur Clustererstellung unterscheidet sich in folgenden Situationen:
+
+* Der ESXi-Host wird nicht von vCenter (einem eigenständigen Host) verwaltet
+* Innerhalb des Clusters werden mehrere Nodes oder Hosts verwendet.
+* Cluster wird in einer Produktionsumgebung mit einer erworbenen Lizenz eingesetzt
+* Der KVM-Hypervisor wird anstelle von VMware ESXi verwendet
+
+
+
+
+== 1. Registrieren Sie die vCenter Server-Anmeldeinformationen
+
+Bei der Bereitstellung auf einem von einem vCenter Server verwalteten ESXi-Host müssen Sie vor der Registrierung des Hosts eine Anmeldeinformation hinzufügen. Das Deploy-Verwaltungsdienstprogramm kann dann die Anmeldeinformation zur Authentifizierung bei vCenter verwenden.
+
+[cols="15,15,70"]
+|===
+| Kategorie | HTTP-Verb | Pfad 
+
+
+| Einsetzen | POST | /security/credentials 
+|===
+Curl::
+
+
+[source, curl]
+----
+curl -iX POST -H 'Content-Type: application/json' -u admin:<password> -k -d @step01 'https://10.21.191.150/api/security/credentials'
+----
+JSON-Eingabe (Schritt 01)::
+
+
+[source, json]
+----
+{
+  "hostname": "vcenter.company-demo.com",
+  "type": "vcenter",
+  "username": "misteradmin@vsphere.local",
+  "password": "mypassword"
+}
+----
+Verarbeitungstyp:: asynchron
+Ausgabe::
++
+--
+* Anmeldeinformations-ID im Location-Antwortheader
+* Jobobjekt
+
+
+--
+
+
+
+
+== 2. Registrieren Sie einen Hypervisor-Host
+
+Sie müssen einen Hypervisor-Host hinzufügen, auf dem die virtuelle Maschine, die den ONTAP Select Node-Name enthält, ausgeführt werden soll.
+
+[cols="15,15,70"]
+|===
+| Kategorie | HTTP-Verb | Pfad 
+
+
+| Cluster | POST | /hosts 
+|===
+Curl::
+
+
+[source, curl]
+----
+curl -iX POST -H 'Content-Type: application/json' -u admin:<password> -k -d @step02 'https://10.21.191.150/api/hosts'
+----
+JSON-Eingabe (step02)::
+
+
+[source, json]
+----
+{
+  "hosts": [
+    {
+      "hypervisor_type": "ESX",
+      "management_server": "vcenter.company-demo.com",
+      "name": "esx1.company-demo.com"
+    }
+  ]
+}
+----
+Verarbeitungstyp:: asynchron
+Ausgabe::
++
+--
+* Host-ID im Location-Antwortheader
+* Jobobjekt
+
+
+--
+
+
+
+
+== 3. Erstellen Sie einen Cluster
+
+Wenn Sie einen ONTAP Select Cluster erstellen, wird die grundlegende Clusterkonfiguration registriert und die Node-Namen werden automatisch von Deploy generiert.
+
+[cols="15,15,70"]
+|===
+| Kategorie | HTTP-Verb | Pfad 
+
+
+| Cluster | POST | /clusters 
+|===
+Curl:: Der Abfrageparameter node_count sollte für einen Einzelknotencluster auf 1 gesetzt werden.
+
+
+[source, curl]
+----
+curl -iX POST -H 'Content-Type: application/json' -u admin:<password> -k -d @step03 'https://10.21.191.150/api/clusters? node_count=1'
+----
+JSON-Eingabe (Schritt 03)::
+
+
+[source, json]
+----
+{
+  "name": "my_cluster"
+}
+----
+Verarbeitungstyp:: Synchron
+Ausgabe::
++
+--
+* Cluster-ID im Standortantwort-Header
+
+
+--
+
+
+
+
+== 4. Konfigurieren Sie den Cluster
+
+Es gibt mehrere Attribute, die Sie im Rahmen der Clusterkonfiguration angeben müssen.
+
+[cols="15,15,70"]
+|===
+| Kategorie | HTTP-Verb | Pfad 
+
+
+| Cluster | PATCH | /clusters/{cluster_id} 
+|===
+Curl:: Sie müssen die Cluster-ID angeben.
+
+
+[source, curl]
+----
+curl -iX PATCH -H 'Content-Type: application/json' -u admin:<password> -k -d @step04 'https://10.21.191.150/api/clusters/CLUSTERID'
+----
+JSON-Eingabe (Schritt 04)::
+
+
+[source, json]
+----
+{
+  "dns_info": {
+    "domains": ["lab1.company-demo.com"],
+    "dns_ips": ["10.206.80.135", "10.206.80.136"]
+    },
+    "ontap_image_version": "9.5",
+    "gateway": "10.206.80.1",
+    "ip": "10.206.80.115",
+    "netmask": "255.255.255.192",
+    "ntp_servers": {"10.206.80.183"}
+}
+----
+Verarbeitungstyp:: Synchron
+Ausgabe:: Keine
+
+
+
+
+== 5. Node-Name abrufen
+
+Das Deploy-Verwaltungsprogramm generiert beim Erstellen eines Clusters automatisch die Node-IDs und Node-Namen. Bevor Sie einen Node konfigurieren können, müssen Sie die zugewiesene ID abrufen.
+
+[cols="15,15,70"]
+|===
+| Kategorie | HTTP-Verb | Pfad 
+
+
+| Cluster | GET | /clusters/{cluster_id}/nodes 
+|===
+Curl:: Sie müssen die Cluster-ID angeben.
+
+
+[source, curl]
+----
+curl -iX GET -u admin:<password> -k 'https://10.21.191.150/api/clusters/CLUSTERID/nodes?fields=id,name'
+----
+Verarbeitungstyp:: Synchron
+Ausgabe::
++
+--
+* Array-Datensätze, die jeweils einen einzelnen Node mit der eindeutigen ID und dem Node-Name beschreiben
+
+
+--
+
+
+
+
+== 6. Konfigurieren Sie die Knoten
+
+Sie müssen die Basiskonfiguration für den Node bereitstellen, was der erste von drei API-Aufrufen ist, die zur Konfiguration eines Node verwendet werden.
+
+[cols="15,15,70"]
+|===
+| Kategorie | HTTP-Verb | Pfad 
+
+
+| Cluster | WEG | /clusters/{cluster_id}/nodes/{node_id} 
+|===
+Curl:: Sie müssen die Cluster-ID und die Node-ID angeben.
+
+
+[source, curl]
+----
+curl -iX PATCH -H 'Content-Type: application/json' -u admin:<password> -k -d @step06 'https://10.21.191.150/api/clusters/CLUSTERID/nodes/NODEID'
+----
+JSON-Eingabe (Schritt 06):: Sie müssen die Host-ID angeben, auf der der ONTAP Select Node ausgeführt werden soll.
+
+
+[source, json]
+----
+{
+  "host": {
+    "id": "HOSTID"
+    },
+  "instance_type": "small",
+  "ip": "10.206.80.101",
+  "passthrough_disks": false
+}
+----
+Verarbeitungstyp:: Synchron
+Ausgabe:: Keine
+
+
+
+
+== 7. Knotennetzwerke abrufen
+
+Sie müssen die Daten- und Managementnetzwerke identifizieren, die vom Knoten im Einzelknotencluster verwendet werden. Das interne Netzwerk wird in einem Einzelknotencluster nicht verwendet.
+
+[cols="15,15,70"]
+|===
+| Kategorie | HTTP-Verb | Pfad 
+
+
+| Cluster | GET | /clusters/{cluster_id}/nodes/{node_id}/networks 
+|===
+Curl:: Sie müssen die Cluster-ID und die Node-ID angeben.
+
+
+[source, curl]
+----
+curl -iX GET -u admin:<password> -k 'https://10.21.191.150/api/ clusters/CLUSTERID/nodes/NODEID/networks?fields=id,purpose'
+----
+Verarbeitungstyp:: Synchron
+Ausgabe::
++
+--
+* Array aus zwei Datensätzen, die jeweils ein einzelnes Netzwerk für den Node-Name beschreiben, einschließlich der eindeutigen ID und des Zwecks
+
+
+--
+
+
+
+
+== 8. Konfigurieren Sie die Node-Netzwerke
+
+Sie müssen die Daten- und Managementnetzwerke konfigurieren. Das interne Netzwerk wird bei einem Einzelknotencluster nicht verwendet.
+
+
+NOTE: Führen Sie den folgenden API-Aufruf zweimal aus, einmal für jedes Netzwerk.
+
+[cols="15,15,70"]
+|===
+| Kategorie | HTTP-Verb | Pfad 
+
+
+| Cluster | PATCH | /clusters/{cluster_id}/nodes/{node_id}/networks/{network_id} 
+|===
+Curl:: Sie müssen die Cluster-ID, die Node-ID und die Netzwerk-ID angeben.
+
+
+[source, curl]
+----
+curl -iX PATCH -H 'Content-Type: application/json' -u admin:<password> -k -d @step08 'https://10.21.191.150/api/clusters/ CLUSTERID/nodes/NODEID/networks/NETWORKID'
+----
+JSON-Eingabe (Schritt 08):: Sie müssen den Namen des Netzwerks angeben.
+
+
+[source, json]
+----
+{
+  "name": "sDOT_Network"
+}
+----
+Verarbeitungstyp:: Synchron
+Ausgabe:: Keine
+
+
+
+
+== 9. Konfigurieren Sie den Knotenspeicherpool
+
+Der letzte Schritt bei der Konfiguration eines Knotens ist das Anbinden eines Speicherpools. Die verfügbaren Speicherpools können Sie über den vSphere Webclient oder optional über die Deploy REST API ermitteln.
+
+[cols="15,15,70"]
+|===
+| Kategorie | HTTP-Verb | Pfad 
+
+
+| Cluster | PATCH | /clusters/{cluster_id}/nodes/{node_id}/networks/{network_id} 
+|===
+Curl:: Sie müssen die Cluster-ID, die Node-ID und die Netzwerk-ID angeben.
+
+
+[source, curl]
+----
+curl -iX PATCH -H 'Content-Type: application/json' -u admin:<password> -k -d @step09 'https://10.21.191.150/api/clusters/ CLUSTERID/nodes/NODEID'
+----
+JSON-Eingabe (Schritt 09):: Die Speicherkapazität des Pools beträgt 2 TB.
+
+
+[source, json]
+----
+{
+  "pool_array": [
+    {
+      "name": "sDOT-01",
+      "capacity": 2147483648000
+    }
+  ]
+}
+----
+Verarbeitungstyp:: Synchron
+Ausgabe:: Keine
+
+
+
+
+== 10. Stellen Sie den Cluster bereit
+
+Nachdem Cluster und Node konfiguriert wurden, können Sie den Cluster bereitstellen.
+
+[cols="15,15,70"]
+|===
+| Kategorie | HTTP-Verb | Pfad 
+
+
+| Cluster | POST | /clusters/{cluster_id}/deploy 
+|===
+Curl:: Sie müssen die Cluster-ID angeben.
+
+
+[source, curl]
+----
+curl -iX POST -H 'Content-Type: application/json' -u admin:<password> -k -d @step10 'https://10.21.191.150/api/clusters/CLUSTERID/deploy'
+----
+JSON-Eingabe (Schritt 10):: Sie müssen das Passwort für das ONTAP Administratorkonto angeben.
+
+
+[source, json]
+----
+{
+  "ontap_credentials": {
+    "password": "mypassword"
+  }
+}
+----
+Verarbeitungstyp:: asynchron
+Ausgabe::
++
+--
+* Jobobjekt
+
+
+--
+
+
+.Verwandte Informationen
+link:deploy-evaluation-ontap-select-ovf-template.html["Stellen Sie eine 90-tägige Testinstanz eines ONTAP Select Clusters bereit."]

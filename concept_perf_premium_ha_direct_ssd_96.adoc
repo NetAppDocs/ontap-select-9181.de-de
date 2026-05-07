@@ -1,0 +1,141 @@
+---
+sidebar: sidebar 
+permalink: concept_perf_premium_ha_direct_ssd_96.html 
+keywords: ontap select, performance 
+summary: Leistungsinformationen für ONTAP Select 9.6 Performance – Premium HA direkt angeschlossenen SSD-Speicher. 
+---
+= ONTAP Select 9.6 Leistung: Premium HA direkt angeschlossener SSD-Speicher
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Leistungsdaten für die Referenzplattform.
+
+
+
+== Referenzplattform
+
+ONTAP Select (Premium XL) Hardware (pro Knoten)
+
+* FUJITSU PRIMERGY RX2540 M4:
++
+** Intel(R) Xeon(R) Gold 6142b CPU mit 2,6 GHz
+** 32 physische Kerne (16 x 2 Sockel), 64 logische
+** 256 GB RAM
+** Laufwerke pro Host: 24 960GB SSD
+** ESXi 6.5U1
+
+
+
+
+Client-Hardware
+
+* 5 x NFSv3 IBM 3550m4 Clients
+
+
+Konfigurationsinformationen
+
+* SW RAID 1 x 9 + 2 RAID-DP (11 Laufwerke)
+* 22+1 RAID-5 (RAID-0 in ONTAP) / RAID-Cache NVRAM
+* Es werden keine Speichereffizienzfunktionen verwendet (Komprimierung, Deduplizierung, Snapshot-Kopien, SnapMirror und so weiter)
+
+
+Die folgende Tabelle listet den Durchsatz auf, gemessen bei lesen/schreiben-Workloads auf einem hochverfügbaren (HA) Paar von ONTAP Select Nodes mit sowohl Software-RAID als auch Hardware-RAID. Die Leistungsmessungen wurden mit dem Lastgenerierungstool SIO durchgeführt.
+
+
+NOTE: Diese Leistungszahlen basieren auf ONTAP Select 9.6.
+
+*Leistungsergebnisse für einen einzelnen Knoten (Teil einer mittelgroßen Instanz mit vier Knoten) ONTAP Select Cluster auf einem direkt angeschlossenen SSD-Speicher (DAS) mit Software-RAID und Hardware-RAID*
+
+[cols="6*"]
+|===
+| Beschreibung | Sequenzielles Lesen 64KiB | Sequenzielles Schreiben 64KiB | Zufälliges Lesen 8 KiB | Zufälliger Schreibvorgang 8KiB | Zufällige WR/RD (50/50) 8KiB 
+
+
+| ONTAP Select große Instanz mit DAS (SSD) Software-RAID | 2171 MiBps | 559 MiBps | 954 MiBps | 394 MiBps | 564 MiBps 
+
+
+| ONTAP Select Medium-Instanz mit DAS (SSD) Software-RAID | 2090 MiBps | 592 MiBps | 677 MiBps | 335 MiBps | 441 3MiBps 
+
+
+| ONTAP Select Medium-Instanz mit DAS (SSD) Hardware-RAID | 2038 MiBps | 520 MiBps | 578 MiBps | 325 MiBps | 399 MiBps 
+|===
+
+
+=== 64K sequenzielles Lesen
+
+Details:
+
+* SIO direct I/O aktiviert
+* 2 Knoten
+* 2 x Daten-NIC pro Knoten
+* 1 x Datenaggregat pro Knoten (2TB Hardware-RAID), (8TB Software-RAID)
+* 64 SIO-Prozesse, 1 Thread pro Prozess
+* 32 Volumes pro Knoten
+* 1 x Dateien pro Prozessor; Dateien sind jeweils 12000MB groß
+
+
+
+
+=== 64K sequenzielles Schreiben
+
+Details:
+
+* SIO direct I/O aktiviert
+* 2 Knoten
+* 2 x Datennetzwerkschnittstellenkarten (NICs) pro Knoten
+* 1 x Datenaggregat pro Knoten (2TB Hardware-RAID), (4TB Software-RAID)
+* 128 SIO-Prozesse, 1 Thread pro Prozess
+* Volumes pro Node: 32 (Hardware-RAID), 16 (Software-RAID)
+* 1 x Dateien pro Prozessor; Dateien sind jeweils 30720MB groß
+
+
+
+
+=== 8K zufälliges Lesen
+
+Details:
+
+* SIO direct I/O aktiviert
+* 2 Knoten
+* 2 x Daten-NICs pro Knoten
+* 1 x Datenaggregat pro Knoten (2TB Hardware-RAID), (4TB Software-RAID)
+* 64 SIO-Prozesse, 8 Threads pro Prozess
+* Volumen pro Knoten: 32
+* 1 x Dateien pro Prozessor; die Dateien sind jeweils 12228MB groß
+
+
+
+
+=== 8K zufällige Schreibvorgänge
+
+Details:
+
+* SIO direct I/O aktiviert
+* 2 Knoten
+* 2 x Daten-NICs pro Knoten
+* 1 x Datenaggregat pro Knoten (2TB Hardware-RAID), (4TB Software-RAID)
+* 64 SIO-Prozesse, 8 Threads pro Prozess
+* Volumen pro Knoten: 32
+* 1 x Dateien pro Prozessor; Dateien sind jeweils 8192MB groß
+
+
+
+
+=== 8K zufällig 50% schreiben 50% lesen
+
+Details:
+
+* SIO direct I/O aktiviert
+* 2 Knoten
+* 2 x Daten-NICs pro Knoten
+* 1 x Datenaggregat pro Knoten (2TB Hardware-RAID), (4TB Software-RAID)
+* 64 SIO proc208 Threads pro Prozessor
+* Volumen pro Knoten: 32
+* 1 x Dateien pro Prozessor; die Dateien sind jeweils 12228MB groß
+
