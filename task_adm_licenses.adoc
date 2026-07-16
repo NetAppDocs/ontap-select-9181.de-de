@@ -18,6 +18,7 @@ Es gibt mehrere damit zusammenhängende Aufgaben, die Sie im Rahmen der Verwaltu
 
 
 
+[[manage-the-capacity-tier-licenses]]
 == Verwalten Sie die Kapazitätsstufenlizenzen
 
 Sie können ONTAP Select Capacity Tier-Lizenzen nach Bedarf hinzufügen, bearbeiten und löschen.
@@ -33,6 +34,7 @@ Sie können ONTAP Select Capacity Tier-Lizenzen nach Bedarf hinzufügen, bearbei
 
 
 
+[[manage-the-capacity-pool-licenses]]
 == Verwalten Sie die Kapazitätspoollizenzen
 
 Sie können ONTAP Select Capacity Pool-Lizenzen nach Bedarf hinzufügen, bearbeiten und löschen.
@@ -81,6 +83,7 @@ So verlängern Sie eine bestehende Lizenz:
 
 
 
+[[reinstall-a-capacity-pool-license]]
 == Eine Kapazitätspoollizenz neu installieren
 
 Jede aktive Capacity Pool-Lizenz ist an eine bestimmte License Manager-Instanz gebunden, die in einer Instanz des Deploy-Verwaltungsprogramms enthalten ist. Wenn Sie eine Capacity Pool-Lizenz verwenden und anschließend die Deploy-Instanz wiederherstellen oder wiederherstellen, ist die ursprüngliche Lizenz nicht mehr gültig. Sie müssen eine neue Capacity-Lizenzdatei generieren und dann die Lizenz in der neuen Deploy-Instanz installieren.
@@ -145,6 +148,8 @@ Siehe link:task_lic_acquire_cp.html["Erwerben Sie eine Kapazitätspool-Lizenz"] 
 
 
 
+[[convert-an-evaluation-license-to-a-production-license]]
+[[convert-license]]
 == Eine Testlizenz in eine Produktionslizenz umwandeln
 
 Sie können einen ONTAP Select-Evaluierungscluster mit dem Verwaltungsdienstprogramm Deploy auf die Verwendung einer Produktionslizenz der Capacity Tier upgraden.
@@ -176,6 +181,7 @@ Die ursprünglich jedem Knoten für die Evaluierungsbereitstellung zugewiesenen 
 
 
 
+[[manage-an-expired-capacity-pool-license]]
 == Verwalten einer abgelaufenen Kapazitätspoollizenz
 
 Im Allgemeinen passiert nichts, wenn eine Lizenz abläuft. Sie können jedoch keine andere Lizenz installieren, da die Knoten mit der abgelaufenen Lizenz verknüpft sind. Bis zur Lizenzverlängerung sollten Sie _keine_ Aktionen durchführen, die das Aggregat offline nehmen würden, wie z. B. einen Neustart oder ein Failover. Es wird empfohlen, die Lizenzverlängerung zu beschleunigen.
@@ -184,6 +190,7 @@ Weitere Informationen zu ONTAP Select und zur Lizenzverlängerung finden Sie im 
 
 
 
+[[manage-add-on-licenses]]
 == Zusatzlizenzen verwalten
 
 Für das Produkt ONTAP Select werden Zusatzlizenzen direkt innerhalb von ONTAP angewendet und nicht über ONTAP Select Deploy verwaltet. Siehe link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Lizenzverwaltung – Übersicht (nur für Cluster-Administratoren)"^] und link:https://docs.netapp.com/us-en/ontap/task_admin_enable_new_features.html["Aktivieren Sie neue Funktionen durch Hinzufügen von Lizenzschlüsseln"^] für weitere Informationen.

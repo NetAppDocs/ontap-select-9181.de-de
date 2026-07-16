@@ -18,6 +18,7 @@ Bevor Sie das Deploy-Verwaltungsprogramm in einer Hypervisor-Umgebung installier
 
 
 
+[[required-configuration-information]]
 == Erforderliche Konfigurationsinformationen
 
 Im Rahmen Ihrer Bereitstellungsplanung sollten Sie die erforderlichen Konfigurationsinformationen ermitteln, bevor Sie das ONTAP Select Deploy Verwaltungsprogramm installieren.
@@ -40,6 +41,7 @@ Im Rahmen Ihrer Bereitstellungsplanung sollten Sie die erforderlichen Konfigurat
 |===
 
 
+[[optional-network-configuration-information]]
 == Optionale Netzwerkkonfigurationsinformationen
 
 Die virtuelle Maschine „Deploy“ ist standardmäßig per DHCP konfiguriert. Bei Bedarf können Sie die Netzwerkschnittstelle der virtuellen Maschine jedoch manuell konfigurieren.

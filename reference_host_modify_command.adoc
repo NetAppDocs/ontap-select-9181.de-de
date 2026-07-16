@@ -18,12 +18,14 @@ Sie können den  `host modify`Befehl verwenden, um einen Host-Management-Server 
 
 
 
+[[syntax]]
 == Syntax
 
 `host modify [-help] [-foreground] -name _name_ -mgmt-server _management_server_ [-username _username_]`
 
 
 
+[[required-parameters]]
 == Erforderliche Parameter
 
 [cols="35,65"]
@@ -48,6 +50,7 @@ Die IP-Adresse oder der FQDN des Host-Verwaltungsservers, der dem Host zugewiese
 |===
 
 
+[[optional-parameters]]
 == Optionale Parameter
 
 [cols="35,65"]

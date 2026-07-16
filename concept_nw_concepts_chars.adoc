@@ -18,12 +18,14 @@ Machen Sie sich zunächst mit den allgemeinen Netzwerkkonzepten vertraut, die f�
 
 
 
+[[physical-networking]]
 == Physische Vernetzung
 
 Das physische Netzwerk unterstützt eine ONTAP Select-Cluster-Implementierung primär durch die Bereitstellung der zugrundeliegenden Layer-2-Switching-Infrastruktur. Die Konfiguration im Zusammenhang mit dem physischen Netzwerk umfasst sowohl den Hypervisor-Host als auch die gesamte Switched-Netzwerkumgebung.
 
 
 
+[[host-nic-options]]
 === Host-NIC-Optionen
 
 Jeder ONTAP Select Hypervisor-Host muss entweder mit zwei oder vier physischen Ports konfiguriert werden. Die genaue Konfiguration, die Sie wählen, hängt von mehreren Faktoren ab, darunter:
@@ -36,6 +38,7 @@ Jeder ONTAP Select Hypervisor-Host muss entweder mit zwei oder vier physischen P
 
 
 
+[[physical-switch-configuration]]
 === Konfiguration des physischen Schalters
 
 Sie müssen sicherstellen, dass die Konfiguration der physischen Switches die ONTAP Select Implementierung unterstützt. Die physischen Switches sind in die hypervisorbasierten virtuellen Switches integriert. Die genaue Konfiguration hängt von verschiedenen Faktoren ab. Zu den wichtigsten Aspekten gehören:
@@ -47,12 +50,14 @@ Sie müssen sicherstellen, dass die Konfiguration der physischen Switches die ON
 
 
 
+[[logical-networking]]
 == Logische Netzwerke
 
 ONTAP Select nutzt zwei unterschiedliche logische Netzwerke, um den Datenverkehr nach Typ zu trennen. Konkret kann der Datenverkehr zwischen den Hosts innerhalb des Clusters sowie zu Speicherclients und anderen Rechnern außerhalb des Clusters fließen. Die von den Hypervisoren verwalteten virtuellen Switches unterstützen das logische Netzwerk.
 
 
 
+[[internal-network]]
 === Internes Netzwerk
 
 Bei einer Multi-Node-Clusterbereitstellung kommunizieren die einzelnen ONTAP Select-Knoten über ein isoliertes „internes“ Netzwerk. Dieses Netzwerk ist außerhalb der Knoten im ONTAP Select Cluster weder zugänglich noch verfügbar.
@@ -82,6 +87,7 @@ Das interne Netzwerk weist folgende Merkmale auf:
 
 
 
+[[external-network]]
 === Externes Netzwerk
 
 Das externe Netzwerk verarbeitet den Datenverkehr zwischen den Knoten eines ONTAP Select Clusters und den externen Speicherclients sowie den anderen Rechnern. Das externe Netzwerk ist Bestandteil jeder Clusterbereitstellung und weist folgende Eigenschaften auf:
@@ -111,6 +117,7 @@ Das externe Netzwerk ist mit Clustern aller Größen vorhanden.
 
 
 
+[[virtual-machine-networking-environment]]
 == Netzwerkumgebung für virtuelle Maschinen
 
 Der Hypervisor-Host stellt verschiedene Netzwerkfunktionen bereit.

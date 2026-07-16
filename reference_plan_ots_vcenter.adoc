@@ -21,12 +21,14 @@ NOTE: Sie benötigen außerdem den vollqualifizierten Domainnamen oder die IP-Ad
 
 
 
+[[administrative-privileges]]
 == Administratorrechte
 
 Die minimalen administrativen Berechtigungen, die zum Erstellen und Verwalten eines ONTAP Select Clusters erforderlich sind, werden im Folgenden aufgeführt.
 
 
 
+[[datastore]]
 === Datenspeicher
 
 * Speicherplatz zuweisen
@@ -38,6 +40,7 @@ Die minimalen administrativen Berechtigungen, die zum Erstellen und Verwalten ei
 
 
 
+[[host]]
 === Host
 
 Konfiguration::
@@ -61,6 +64,7 @@ Lokale Operationen::
 
 
 
+[[network]]
 === Netzwerk
 
 * Netzwerk zuweisen
@@ -68,6 +72,7 @@ Lokale Operationen::
 
 
 
+[[virtual-machine]]
 === Virtuelle Maschine
 
 Konfiguration:: Alle Privilegien in dieser Kategorie.
@@ -78,9 +83,10 @@ Bereitstellung:: Alle Privilegien in dieser Kategorie.
 
 
 
+[[vapp]]
 === vApp
 
 Alle Privilegien in dieser Kategorie.
 
 .Verwandte Informationen
-link:https://docs.netapp.com/us-en/ontap-select/reference_plan_dep_vmware.html#ontap-select-deploy-vmware-vcenter-server-considerations["Erfahren Sie mehr über VMware vSphere-Berechtigungen für vSAN ESA in vCenter"]
+link:reference_plan_dep_vmware.html#vmware-vcenter-server-considerations["Erfahren Sie mehr über VMware vSphere-Berechtigungen für vSAN ESA in vCenter"]

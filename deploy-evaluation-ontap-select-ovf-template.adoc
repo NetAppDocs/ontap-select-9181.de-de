@@ -26,6 +26,7 @@ Sie können eine 90-tägige Testversion eines ONTAP Select-Clusters mit einer Gr
 
 
 
+[[step-1-prepare-the-ontap-select-cluster-host]]
 == Schritt 1: ONTAP Select-Clusterhost vorbereiten
 
 Beachten Sie die folgenden Anforderungen, um den ESXi-Host vorzubereiten, auf dem der ONTAP Select Cluster bereitgestellt wird. Die Plattformbeschreibung basiert auf der Konfiguration des Standard- oder kleinen Instanztyps mit lokal direkt angeschlossenem Speicher (DAS), der mit dem VMFS-5- oder VMFS-6-Dateisystem formatiert ist.
@@ -36,6 +37,7 @@ Weitere Informationen zu den Host-Konfigurationsoptionen finden Sie in der link:
 
 
 
+[[step-2-deploy-a-single-node-ontap-select-cluster-using-an-ovf-template]]
 == Schritt 2: Bereitstellung eines Single-Node-ONTAP Select Clusters mithilfe einer OVF-Vorlage
 
 Führen Sie die folgenden Schritte auf einem unterstützten 64-Bit ESXi-Hostserver durch.

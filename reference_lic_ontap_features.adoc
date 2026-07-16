@@ -21,6 +21,8 @@ NOTE: ONTAP-Funktionen mit hardwarespezifischen Abhängigkeiten werden in der Re
 
 
 
+[[ontap-features-automatically-enabled-by-default]]
+[[enabled-ontap-features]]
 == ONTAP-Funktionen werden standardmäßig automatisch aktiviert
 
 Die folgenden ONTAP-Funktionen werden von ONTAP Select unterstützt und sind standardmäßig lizenziert:
@@ -62,6 +64,7 @@ ONTAP Select unterstützt SVM DR sowohl als Quelle als auch als Ziel mit maximal
 
 
 
+[[ontap-features-that-are-separately-licensed]]
 == ONTAP Funktionen, die separat lizenziert werden
 
 Sie benötigen eine separate Lizenz für jede ONTAP-Funktion, die nicht standardmäßig aktiviert ist, einschließlich:

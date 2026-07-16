@@ -18,6 +18,7 @@ Zur Administration eines ONTAP Select Clusters können Sie verschiedene damit zu
 
 
 
+[[move-an-ontap-select-cluster-offline-and-online]]
 == Verschieben eines ONTAP Select Clusters offline und online
 
 Nachdem Sie einen Cluster erstellt haben, können Sie ihn je nach Bedarf offline und online schalten.
@@ -40,6 +41,7 @@ Falls die Offline-Option nicht verfügbar ist, befindet sich der Cluster bereits
 
 
 
+[[delete-an-ontap-select-cluster]]
 == Löschen eines ONTAP Select-Clusters
 
 Sie können einen ONTAP Select Cluster löschen, wenn er nicht mehr benötigt wird.
@@ -59,6 +61,7 @@ Wenn die Löschoption nicht verfügbar ist, befindet sich der Cluster nicht im O
 
 
 
+[[refresh-the-deploy-cluster-configuration]]
 == Aktualisieren Sie die Deploy-Clusterkonfiguration
 
 Nach der Erstellung eines ONTAP Select Clusters können Sie Änderungen an der Cluster- oder der virtuellen Maschinenkonfiguration außerhalb des Deploy-Tools mithilfe der ONTAP- oder Hypervisor-Verwaltungstools vornehmen. Die Konfiguration einer virtuellen Maschine kann sich auch nach ihrer Migration ändern.

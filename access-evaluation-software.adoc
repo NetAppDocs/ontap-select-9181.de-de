@@ -30,6 +30,7 @@ NOTE: Eine Testlizenz kann nicht verlängert werden. Nach Ablauf der 90 Tage ver
 
 
 
+[[step-1-register-for-an-account]]
 == Schritt 1: Registrieren Sie sich für ein Konto
 
 Schließen Sie die NetApp-Kontoregistrierung ab, falls erforderlich, und beantragen Sie den Interessentenzugang.
@@ -73,6 +74,7 @@ Geben Sie den Namen Ihres NetApp Ansprechpartners an.
 
 
 
+[[step-2-download-ontap-select-evaluation-software]]
 == Schritt 2: Laden Sie die ONTAP Select Evaluierungssoftware herunter
 
 Nachdem Ihr Supportfall geprüft und genehmigt wurde, benachrichtigt Sie der NetApp Support über die angegebene E-Mail-Adresse.

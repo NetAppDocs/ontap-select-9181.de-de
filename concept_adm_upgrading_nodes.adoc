@@ -21,6 +21,7 @@ CAUTION: Das Verwaltungstool Deploy kann nicht für Upgrades bestehender ONTAP S
 
 
 
+[[general-procedure]]
 == Allgemeines Verfahren
 
 Im Wesentlichen sollten Sie die folgenden Schritte verwenden, um einen bestehenden ONTAP Select Node zu aktualisieren.
@@ -39,6 +40,7 @@ Im Wesentlichen sollten Sie die folgenden Schritte verwenden, um einen bestehend
 
 
 
+[[revert-an-ontap-select-node]]
 == Einen ONTAP Select Knoten zurücksetzen
 
 Ein ONTAP Select-Knoten kann nicht auf eine Version vor der ursprünglichen Installationsversion zurückgesetzt werden. Zum Beispiel:
@@ -49,6 +51,7 @@ ONTAP Select 9.17.1 ist zunächst installiert:: Eine Wiederherstellung ist nicht
 
 
 
+[[use-the-vmxnet3-network-driver]]
 == Verwenden Sie den VMXNET3-Netzwerktreiber
 
 VMXNET3 ist der standardmäßige Netzwerktreiber, der bei neuen Clusterbereitstellungen auf VMware ESXi enthalten ist. Wenn Sie einen vorhandenen ONTAP Select Knoten mit ONTAP Select 9.4 oder einer älteren Version aktualisieren, wird der Netzwerktreiber nicht automatisch aktualisiert. Sie müssen das Upgrade manuell auf VMXNET3 durchführen. Sie sollten sich an den NetApp Support wenden, um Unterstützung beim Upgrade zu erhalten.

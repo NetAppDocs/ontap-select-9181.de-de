@@ -18,6 +18,7 @@ Sie müssen das Hypervisor-Netzwerk korrekt konfigurieren, bevor Sie ONTAP Selec
 
 
 
+[[virtual-switch-options]]
 == Virtuelle Switch-Optionen
 
 Sie müssen auf jedem ONTAP Select Host einen virtuellen Switch konfigurieren, um das externe Netzwerk und das interne Netzwerk (nur bei Multi-Node-Clustern) zu unterstützen. Im Rahmen der Bereitstellung eines Multi-Node-Clusters sollten Sie die Netzwerkverbindung im internen Clusternetzwerk testen.
@@ -27,12 +28,14 @@ NOTE: Weitere Informationen darüber, wie Sie einen vSwitch auf einem Hypervisor
 
 
 
+[[upgrade-to-vmxnet3-esxi-only]]
 == Upgrade auf VMXNET3 (nur ESXi)
 
 Ab ONTAP Select 9.5 mit Deploy 2.10 ist VMXNET3 der standardmäßige Netzwerktreiber, der bei neuen Clusterbereitstellungen auf VMware ESXi enthalten ist. Wenn Sie einen älteren ONTAP Select Node auf Version 9.5 oder höher aktualisieren, wird der Treiber nicht automatisch aktualisiert.
 
 
 
+[[cluster-mtu]]
 == Cluster-MTU
 
 Ein separates internes Netzwerk wird verwendet, um die ONTAP Select-Knoten in einem Multi-Node-Cluster zu verbinden. Typischerweise beträgt die MTU-Größe für dieses Netzwerk 9000. Es gibt jedoch Situationen, in denen diese MTU-Größe für das Netzwerk, das die ONTAP Select-Knoten verbindet, zu groß ist. Um die kleineren Frames zu berücksichtigen, kann die von ONTAP Select im internen Netzwerk verwendete MTU-Größe im Bereich von 7500-9000 Byte liegen.
@@ -49,6 +52,7 @@ NOTE: Sie können den Cluster-MTU-Wert bei Bedarf manuell festlegen, basierend a
 
 
 
+[[two-nic-host-with-standard-vswitch-esxi-only]]
 == Host mit zwei Netzwerkkarten mit Standard-vSwitch (nur ESXi)
 
 Um die Leistung von ONTAP Select in einer Konfiguration mit zwei Netzwerkkarten zu verbessern, sollten Sie den internen und externen Netzwerkverkehr mithilfe zweier Portgruppen trennen. Diese Empfehlung gilt für die folgende spezifische Konfiguration:
@@ -76,6 +80,7 @@ Weitere Informationen zu Zwei-NIC-Bereitstellungen finden Sie im link:concept_nw
 
 
 
+[[four-nic-host-with-standard-vswitch-esxi-only]]
 == Host mit vier Netzwerkkarten und Standard-vSwitch (nur ESXi)
 
 Um die Leistung von ONTAP Select in einer Konfiguration mit vier Netzwerkkarten zu verbessern, sollten Sie den internen und externen Netzwerkverkehr mithilfe von vier Portgruppen trennen. Diese Empfehlung gilt für die folgende spezifische Konfiguration:
@@ -115,6 +120,7 @@ Weitere Informationen zu Bereitstellungen mit vier Netzwerkkarten finden Sie im 
 
 
 
+[[network-traffic-requirements]]
 == Anforderungen an den Netzwerkverkehr
 
 Sie müssen sicherstellen, dass Ihre Firewalls ordnungsgemäß konfiguriert sind, damit der Netzwerkverkehr zwischen den verschiedenen Teilnehmern in einer ONTAP Select Bereitstellungsumgebung fließen kann.

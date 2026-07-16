@@ -18,6 +18,7 @@ Beim Erstellen oder Löschen eines ONTAP Select Clusters mithilfe der Python-Cod
 
 
 
+[[single-node-cluster-on-esxi]]
 == Einzelknotencluster auf ESXi
 
 [source, json]
@@ -89,6 +90,7 @@ Beim Erstellen oder Löschen eines ONTAP Select Clusters mithilfe der Python-Cod
 ----
 
 
+[[single-node-cluster-on-esxi-using-vcenter]]
 == Einzelknotencluster auf ESXi mit vCenter
 
 [source, json]
@@ -165,6 +167,7 @@ Beim Erstellen oder Löschen eines ONTAP Select Clusters mithilfe der Python-Cod
 ----
 
 
+[[single-node-cluster-on-kvm]]
 == Einzelknotencluster auf KVM
 
 [source, json]

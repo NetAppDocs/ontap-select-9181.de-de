@@ -54,6 +54,7 @@ Die maximale VMDK-Größe, die während Kapazitätserweiterungen verwendet wird,
 
 
 
+[[increase-capacity-for-ontap-select-with-software-raid]]
 == Erweitern Sie die Kapazität für ONTAP Select mit Software-RAID
 
 Der Speichererweiterungsassistent kann analog dazu verwendet werden, um die verwaltete Kapazität für ONTAP Select Nodes mithilfe von Software-RAID zu erhöhen. Der Assistent zeigt nur die verfügbaren DAS SSD-Laufwerke an, die als RDMs der ONTAP Select VM zugeordnet werden können.

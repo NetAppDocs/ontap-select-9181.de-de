@@ -18,6 +18,7 @@ Es gibt mehrere Vorteile bei der Verwendung des Capacity Pools Lizenzmodells ans
 
 
 
+[[more-efficient-use-of-storage-capacity]]
 == Effizientere Nutzung der Speicherkapazität
 
 Bei der Lizenzierung mit Kapazitätsstufen wird jedem Knoten eine feste Speicherkapazität zugewiesen. Nicht genutzter Speicherplatz kann nicht mit den anderen Knoten geteilt werden und geht somit effektiv verloren. Bei der Lizenzierung mit Kapazitätspools nutzt jeder Knoten nur die Kapazität, die er basierend auf der Größe der Datenaggregate benötigt.
@@ -26,12 +27,14 @@ Die Kapazität ist in einem zentralen Pool verankert, wo sie von vielen Knoten i
 
 
 
+[[significantly-reduced-administrative-overhead-resulting-in-lower-cost]]
 == Deutlich reduzierter Verwaltungsaufwand führt zu geringeren Kosten
 
 Bei Verwendung von Capacity-Tier-Lizenzen muss für jeden Knoten eine Lizenz erworben und installiert werden. Bei der Verwendung von Capacity Pools ist für jeden gemeinsam genutzten Pool eine Lizenz erforderlich. Dies kann den Verwaltungsaufwand erheblich reduzieren und zu geringeren Kosten führen.
 
 
 
+[[improved-usage-metrics]]
 == Verbesserte Nutzungsmetriken
 
 Die Deploy-Weboberfläche bietet erweiterte Nutzungsinformationen für die Kapazitätspools. Sie können schnell ermitteln, wie viel Speicherplatz in einem Kapazitätspool belegt und verfügbar ist, welche Nodes Speicherplatz aus einem Pool nutzen und aus welchen Pools ein Cluster Kapazität zuweist.

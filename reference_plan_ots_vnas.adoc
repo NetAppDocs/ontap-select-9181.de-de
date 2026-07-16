@@ -18,6 +18,7 @@ ONTAP Select vNAS ist eine Lösung, die es ermöglicht, die ONTAP Select-Datensp
 
 
 
+[[basic-requirements-and-restrictions]]
 == Grundvoraussetzungen und Einschränkungen
 
 Die ONTAP Select vNAS-Lösung kann mit einem ONTAP Select Cluster beliebiger Größe verwendet werden.
@@ -42,6 +43,7 @@ Folgende VMware-Funktionen werden nicht unterstützt:
 
 
 
+[[configuration-requirements]]
 == Konfigurationsanforderungen
 
 Wenn Sie einen VMFS-Datenspeicher auf einem externen Speichersystem (iSCSI, Fibre Channel, Fibre Channel over Ethernet) verwenden möchten, müssen Sie einen VMFS-Speicherpool erstellen, bevor Sie ONTAP Select für die Verwendung des Speichers konfigurieren. Wenn Sie einen NFS-Datenspeicher verwenden, ist es nicht erforderlich, einen separaten VMFS-Datenspeicher zu erstellen. Alle vSAN-Datenspeicher müssen innerhalb desselben ESXi-Clusters definiert sein.
@@ -51,6 +53,7 @@ CAUTION: Beim Konfigurieren eines Hosts oder beim Hinzufügen von Speicher muss 
 
 
 
+[[best-practices]]
 == Best Practices
 
 Lesen Sie die VMware-Dokumentation und befolgen Sie die darin beschriebenen Best Practices für ESXi-Hosts. Darüber hinaus:

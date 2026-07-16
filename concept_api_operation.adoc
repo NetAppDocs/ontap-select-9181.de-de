@@ -18,12 +18,14 @@ REST etabliert zwar einen gemeinsamen Satz an Technologien und Best Practices, d
 
 
 
+[[hypervisor-host-versus-ontap-select-node]]
 == Hypervisor-Host versus ONTAP Select Node
 
 Ein _Hypervisor-Host_ ist die zentrale Hardware-Plattform, die eine virtuelle ONTAP Select-Maschine hostet. Wenn eine virtuelle ONTAP Select-Maschine auf einem Hypervisor-Host bereitgestellt und aktiv ist, wird die virtuelle Maschine als _ONTAP Select-Knoten_ betrachtet. Mit Version 3 der Deploy REST API sind die Host- und Knoten-Objekte getrennt und unterschiedlich. Dies ermöglicht eine Eins-zu-Viele-Beziehung, bei der ein oder mehrere ONTAP Select-Knoten auf demselben Hypervisor-Host ausgeführt werden können.
 
 
 
+[[object-identifiers]]
 == Objektbezeichner
 
 Jeder Ressourceninstanz bzw. jedem Objekt wird bei der Erstellung eine eindeutige Kennung zugewiesen. Diese Kennungen sind innerhalb einer bestimmten ONTAP Select Deploy Instanz global eindeutig. Nach einem API-Aufruf, der eine neue Objektinstanz erstellt, wird der zugehörige id-Wert im  `location` Header der HTTP-Antwort an den Aufrufer zurückgegeben. Sie können die Kennung extrahieren und bei nachfolgenden Aufrufen verwenden, um auf die Ressourceninstanz zu verweisen.
@@ -33,12 +35,14 @@ NOTE: Der Inhalt und die interne Struktur der Objektbezeichner können sich jede
 
 
 
+[[request-identifiers]]
 == Anforderungskennungen
 
 Jeder erfolgreichen API-Anfrage wird eine eindeutige Kennung zugewiesen. Die Kennung wird im  `request-id` Header der zugehörigen HTTP-Antwort zurückgegeben. Sie können eine Anfrage-Kennung verwenden, um gemeinsam auf die Aktivitäten einer einzelnen spezifischen API-Anfrage-Antwort-Transaktion zu verweisen. Beispielsweise können Sie alle Ereignismeldungen für eine Transaktion basierend auf der Anfrage-ID abrufen.
 
 
 
+[[synchronous-and-asynchronous-calls]]
 == Synchrone und asynchrone Aufrufe
 
 Es gibt zwei Hauptmethoden, mit denen ein Server eine vom Client empfangene HTTP (Hypertext Transfer Protocol)-Anfrage ausführt:
@@ -49,6 +53,7 @@ Es gibt zwei Hauptmethoden, mit denen ein Server eine vom Client empfangene HTTP
 
 
 
+[[confirm-the-completion-of-a-long-running-job]]
 == Bestätigen Sie den Abschluss eines langwierigen Auftrags
 
 Generell wird jede Operation, die lange dauern kann, asynchron mithilfe einer Hintergrundaufgabe auf dem Server verarbeitet. Mit der Deploy REST API ist jede Hintergrundaufgabe durch ein Job-Objekt verankert, das die Aufgabe verfolgt und Informationen wie den aktuellen Status bereitstellt. Ein Job-Objekt, einschließlich seiner eindeutigen Kennung, wird in der HTTP-Antwort zurückgegeben, nachdem eine Hintergrundaufgabe erstellt wurde.
@@ -63,6 +68,7 @@ Neben der Verwendung des Job-Objekts gibt es weitere Möglichkeiten, den Erfolg 
 
 
 
+[[security]]
 == Sicherheit
 
 Die Deploy-API verwendet folgende Sicherheitstechnologien:

@@ -26,6 +26,7 @@ SnapMirror-Software ermöglicht es Ihnen, Daten zwischen ONTAP-Speichern in der 
 
 
 
+[[software-defined-storage]]
 == Softwaredefinierter Speicher
 
 Die Implementierung und Bereitstellung von IT-Services über Software ermöglicht Administratoren, Ressourcen mit einer Geschwindigkeit und Agilität bereitzustellen, die zuvor nicht möglich war. Wenn moderne Rechenzentren zu einer softwaredefinierten Infrastruktur (SDI) übergehen, können Sie die wertvollsten IT-Ressourcen von der zugrunde liegenden physischen Infrastruktur trennen, was Flexibilität, Skalierbarkeit und Programmierbarkeit bietet.
@@ -36,18 +37,21 @@ ONTAP Select ist die NetApp Lösung für den SDS-Markt. ONTAP Select bringt Spei
 
 
 
+[[two-software-components]]
 == Zwei Softwarekomponenten
 
 ONTAP Select besteht aus zwei Hauptsoftwarekomponenten:
 
 
 
+[[ontap-select-node]]
 === ONTAP Select Knoten
 
 Ein ONTAP Select Cluster besteht aus einem, zwei, vier, sechs, acht, zehn oder zwölf Knoten. Jeder Clusterknoten wird als separate virtuelle Maschine bereitgestellt und führt eine speziell entwickelte Version der ONTAP 9 Software aus.
 
 
 
+[[ontap-select-deploy-administration-utility]]
 === ONTAP Select Deploy-Verwaltungsprogramm
 
 Das Deploy-Verwaltungsprogramm wird als separate virtuelle Linux-Maschine bereitgestellt und installiert. Sie müssen das Programm verwenden, um ONTAP Select Cluster in einer Produktionsumgebung bereitzustellen. Eine aktuelle Version des ONTAP Select Node-Images ist im Deploy-Programm enthalten.
@@ -57,6 +61,7 @@ NOTE: Dem Deploy-Verwaltungsprogramm ist keine separate Versionsnummer zugewiese
 
 
 
+[[illustration-of-a-typical-deployment]]
 == Illustration einer typischen Implementierung
 
 Die folgende Abbildung veranschaulicht das NetApp ONTAP Select Deploy-Verwaltungsprogramm, das zur Bereitstellung und Unterstützung eines ONTAP Select Clusters mit vier Knoten verwendet wird. Das Deploy-Programm und die ONTAP Select-Knoten laufen als separate virtuelle Maschinen auf dedizierten Hypervisor-Hosts.
@@ -65,6 +70,7 @@ image:ots_architecture.png["Veranschaulicht einen ONTAP Select-Cluster mit vier 
 
 
 
+[[flexcache-write-back-with-ontap-select]]
 == FlexCache Write-Back mit ONTAP Select
 
 ONTAP Select unterstützt FlexCache Cache-Volumes mit Write-Back. Die Gesamtleistung einer ONTAP Select-Instanz ist vergleichbar mit der eines Einstiegs-ONTAP-Systems.
@@ -82,30 +88,35 @@ link:https://docs.netapp.com/us-en/ontap/flexcache-writeback/flexcache-write-bac
 
 
 
+[[compare-ontap-select-and-ontap-9]]
 == Vergleichen Sie ONTAP Select und ONTAP 9
 
 Sowohl hardwarebasiert ONTAP als auch ONTAP Select bieten Speicherlösungen der Enterprise-Klasse. Da sie jedoch unterschiedlich konzipiert und implementiert sind, eignen sie sich jeweils für verschiedene Geschäftsanforderungen und Anwendungsszenarien. Sie sollten sich mit den wesentlichen Unterschieden zwischen den Plattformen vertraut machen, bevor Sie eine ONTAP Select Implementierung planen.
 
 
 
+[[different-ha-architecture]]
 === Unterschiedliche HA-Architektur
 
 Abhängig von der Anzahl der von Ihnen in einem Cluster definierten Knoten bietet ONTAP Select eine HA-Funktionalität. Beispielsweise besteht ein Cluster mit vier Knoten aus zwei HA-Paaren. Die für ONTAP Select verwendete HA-Architektur basiert auf einem nicht gemeinsam genutzten Speichermodell. Das heißt, ein Knoten eines HA-Paares kann nicht direkt auf den Speicher zugreifen, der dem anderen Knoten gehört. Dieses Design kann bestimmte Betriebseigenschaften von ONTAP Select beeinflussen.
 
 
 
+[[capacity-licensing]]
 === Kapazitätslizenzierung
 
 ONTAP Select führt ein verbrauchsbasiertes Lizenzmodell ein. Sie müssen beim Einsatz eines ONTAP Select Clusters in einer Produktionsumgebung für jeden Node oder einen gemeinsamen Capacity Pool eine Lizenz mit Speicherkapazität erwerben. Mit dem Deploy-Dienstprogramm müssen Sie die Lizenzdateien anwenden, die die Speicherkapazität für die Clusterknoten festlegen.
 
 
 
+[[ontap-feature-licensing]]
 === ONTAP-Funktionslizenzierung
 
 Jeder Knoten in einem ONTAP Select Cluster ist automatisch für die Nutzung mehrerer ONTAP-Funktionen lizenziert. Sie müssen diese Funktionslizenzen nicht manuell installieren oder anwenden.
 
 
 
+[[ontap-features-not-supported-in-ontap-select]]
 === ONTAP-Funktionen, die in ONTAP Select nicht unterstützt werden
 
 Mehrere ONTAP-Funktionen werden von ONTAP Select nicht unterstützt. In den meisten Fällen benötigen diese Funktionen spezielle Hardware, die in der virtualisierten ONTAP Select Umgebung nicht verfügbar ist.

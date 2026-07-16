@@ -29,6 +29,7 @@ Für Deploy gibt es mehrere spezifische Verfahren (wie das Ändern des Administr
 
 
 
+[[administer-ontap-select]]
 == ONTAP Select verwalten
 
 Es stehen viele verschiedene Verwaltungsverfahren zur Unterstützung von ONTAP Select zur Verfügung. Darüber hinaus gibt es spezifische Verfahren für das Verwaltungsprogramm Deploy. Die wichtigsten dieser Verfahren werden im Folgenden vorgestellt. Im Allgemeinen nutzen alle die Deploy-Webbenutzeroberfläche.
@@ -38,6 +39,7 @@ NOTE: Sie können auch link:https://docs.netapp.com/us-en/ontap-select/task_cli_
 
 
 
+[[perform-additional-ontap-configuration]]
 == Führen Sie zusätzliche ONTAP-Konfigurationen durch
 
 Nach der Bereitstellung eines ONTAP Select-Clusters können Sie diesen genauso konfigurieren und verwalten wie ein hardwarebasiertes ONTAP-System. Beispielsweise können Sie ONTAP System Manager oder die ONTAP CLI verwenden, um den ONTAP Select-Cluster zu konfigurieren.

@@ -18,6 +18,7 @@ ONTAP Select Deploy ist das Verwaltungsprogramm zum Bereitstellen und Verwalten 
 
 
 
+[[core-functionality]]
 == Kernfunktionalität
 
 Das Verwaltungsprogramm Deploy erfüllt folgende Kernfunktionen:
@@ -33,18 +34,21 @@ Das Verwaltungsprogramm Deploy erfüllt folgende Kernfunktionen:
 
 
 
+[[ways-you-can-access-the-deploy-utility]]
 == Möglichkeiten zum Zugriff auf das Deploy-Dienstprogramm
 
 Für den Zugriff auf das Deploy-Verwaltungsprogramm stehen Ihnen mehrere Optionen zur Verfügung. Alle externen Schnittstellen sind funktional gleichwertig. Wählen Sie die Zugriffsoption, die Ihren spezifischen Bereitstellungszielen und -anforderungen am besten entspricht. In jedem Fall müssen Sie sich mit dem Administratorkonto und einem gültigen Passwort anmelden.
 
 
 
+[[web-graphical-user-interface]]
 === Webgrafische Benutzeroberfläche
 
 Sie können das Deploy-Dienstprogramm über einen modernen Webbrowser aufrufen. Die Web-Benutzeroberfläche bietet eine intuitive und benutzerfreundliche Oberfläche und wird in den meisten Fällen Ihre primäre Schnittstelle bei der Verwendung des Dienstprogramms sein.
 
 
 
+[[command-line-interface]]
 === Befehlszeilenschnittstelle
 
 Eine textbasierte Befehlszeilenschnittstelle ist über die Management-Shell verfügbar. Sie können auf die CLI-Management-Shell auf folgende Weise zugreifen:
@@ -57,6 +61,7 @@ Die virtuelle Maschinenkonsole wird üblicherweise im Rahmen der Installation un
 
 
 
+[[rest-web-services-api]]
 === REST-Webdienste-API
 
 Die für externe Clients bereitgestellte REST-Webservices-API bietet eine weitere Option für die Verbindung mit dem Deploy-Dienstprogramm. Sie können auf die API mit jeder gängigen Programmiersprache oder jedem Tool zugreifen, das REST-Webservices unterstützt. Beliebte Optionen sind:
@@ -70,6 +75,7 @@ Die Verwendung einer Programmier- oder Skriptsprache bietet die Möglichkeit, di
 
 
 
+[[ontap-select-online-documentation-web-page]]
 === ONTAP Select Online-Dokumentationswebseite
 
 Die Anzeige der Online-Dokumentationsseite im Deploy-Dienstprogramm ist eine alternative Möglichkeit, auf die REST-Webservices-API zuzugreifen. Anstatt jedoch eine Programmiersprache zu verwenden, greifen Sie über die Seite mithilfe eines Browsers auf die Management-API zu. Die folgenden Funktionen werden bereitgestellt:

@@ -18,6 +18,7 @@ Wenn das ONTAP Select Deploy-Dienstprogramm ausfällt oder aus irgendeinem Grund
 
 
 
+[[prepare-to-recover-the-deploy-utility]]
 == Bereiten Sie die Wiederherstellung des Deploy-Dienstprogramms vor
 
 Sie müssen sich vorbereiten, bevor Sie versuchen, eine Instanz des Deploy-Dienstprogramms wiederherzustellen, um den Erfolg sicherzustellen. Sie müssen mit mehreren administrativen Verfahren vertraut sein und über die erforderlichen Informationen verfügen.
@@ -51,6 +52,8 @@ link:task_cli_migrate_deploy.html#step-3-restore-the-deploy-configuration-data-t
 
 
 
+[[restore-a-deploy-utility-instance-using-a-configuration-backup]]
+[[restore-deploy-backup]]
 == Stellen Sie eine Deploy-Utility-Instanz mithilfe einer Konfigurationssicherung wieder her
 
 Wenn Sie über eine Sicherung der ausgefallenen Deploy-Utility-Instanz mit dem Zwei-Node-Cluster verfügen, können Sie die Konfigurationsdaten auf die neue Deploy-VM-Instanz wiederherstellen. Anschließend müssen Sie die Wiederherstellung abschließen, indem Sie die beiden Nodes im ONTAP Select Cluster zusätzlich konfigurieren.
@@ -127,6 +130,8 @@ Wenn Sie Capacity Pools-Lizenzen verwenden, installieren Sie jede Capacity Pool-
 
 
 
+[[reconfigure-and-recover-a-deploy-utility-instance]]
+[[restore-and-recover-deploy]]
 == Eine Deploy-Utility-Instanz neu konfigurieren und wiederherstellen
 
 Falls Sie keine Sicherung der ausgefallenen Deploy-Utility-Instanz mit dem Zwei-Node-Cluster haben, konfigurieren Sie das Mediator-iSCSI-Ziel und die Mailbox in der neuen virtuellen Deploy-Maschine. Anschließend schließen Sie die Wiederherstellung ab, indem Sie die beiden Knoten im ONTAP Select Cluster weiter konfigurieren.

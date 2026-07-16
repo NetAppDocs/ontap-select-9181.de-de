@@ -38,6 +38,7 @@ Bei der Bereitstellung und dem Support eines Evaluierungsclusters sind mehrere A
 
 
 
+[[licensing-characteristics]]
 == Lizenzmerkmale
 
 Die ONTAP Select-Evaluierungslizenz weist folgende Merkmale auf:
@@ -53,6 +54,7 @@ Die ONTAP Select-Evaluierungslizenz weist folgende Merkmale auf:
 
 
 
+[[upgrade-to-a-production-license]]
 == Upgrade auf eine Produktionslizenz
 
 Sie können einen ONTAP Select-Evaluierungscluster auf die Verwendung einer Produktionslizenz upgraden. Sie sollten sich der folgenden Einschränkungen bewusst sein:

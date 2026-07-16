@@ -20,6 +20,7 @@ Verwenden Sie VMDirectPath I/O Pass-through auf den NVMe-Geräten, um die Datene
 
 
 
+[[step-1-configure-the-host]]
 == Schritt 1: Host konfigurieren
 
 Konfigurieren Sie den ESXi- oder KVM-Host so, dass er die Laufwerke erkennt.
@@ -109,6 +110,7 @@ image:nvme_03.png["Diesen Host neu starten"]
 
 
 
+[[step-2-install-the-ontap-select-deploy-utility]]
 == Schritt 2: Installieren Sie das ONTAP Select Deploy-Dienstprogramm
 
 Nachdem die Hosts vorbereitet wurden, können Sie das ONTAP Select Deploy-Dienstprogramm installieren. Deploy führt Sie durch die Erstellung von ONTAP Select-Speicherclustern auf Ihren neu vorbereiteten Hosts. Dabei erkennt Deploy die für Pass-Through konfigurierten NVMe-Laufwerke und wählt diese automatisch als ONTAP-Datenträger aus. Bei Bedarf können Sie die Standardauswahl anpassen.

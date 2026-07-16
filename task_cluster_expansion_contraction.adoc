@@ -35,6 +35,7 @@ Sie initiieren die Cluster-Erweiterungs- und -Verkleinerungsprozeduren von ONTAP
 
 
 
+[[hardware-and-storage-considerations]]
 == Hardware- und Speicherüberlegungen
 
 Die Cluster-Erweiterungs- und -Verkleinerungsfunktion wird auf den folgenden KVM- und ESXi-Hypervisor-Hosts unterstützt.
@@ -69,6 +70,7 @@ Die Clustererweiterung und -verkleinerung wird für die folgenden KVM-Hypervisor
 ====
 
 
+[[expand-the-cluster]]
 == Cluster erweitern
 
 Verwenden Sie die Cluster-Erweiterungsfunktion, um die Größe eines vorhandenen ONTAP Select Clusters zu erhöhen.
@@ -124,6 +126,7 @@ Nach der Erweiterung des Clusters sollten Sie link:task_cli_clusters.html["Siche
 
 
 
+[[contract-the-cluster]]
 == Cluster verkleinern
 
 Verwenden Sie die Clusterverkleinerungsfunktion, um die Größe eines bestehenden ONTAP Select Clusters zu verringern.

@@ -20,6 +20,7 @@ Dieses Verfahren basiert auf der Erstellung einer neuen virtuellen Maschine, die
 
 
 
+[[step-1back-up-the-deploy-configuration-data]]
 == Schritt 1: Sichern Sie die Bereitstellungskonfigurationsdaten
 
 Im Rahmen der Migration der virtuellen Maschine müssen Sie die Deploy-Konfigurationsdaten sichern. Sie sollten auch nach der Bereitstellung eines ONTAP Select Clusters eine Sicherung erstellen. Die Daten werden in einer einzigen verschlüsselten Datei gespeichert, die Sie auf Ihre lokale Workstation herunterladen können.
@@ -63,6 +64,7 @@ Sie können über die URL auf die Sicherungsdatei zugreifen.
 
 
 
+[[step-2-install-a-new-instance-of-the-deploy-virtual-machine]]
 == Schritt 2: Installieren Sie eine neue Instanz der Deploy-virtuellen Maschine
 
 Sie müssen eine neue Instanz der Deploy-virtuellen Maschine erstellen, die Sie mit den Konfigurationsdaten der ursprünglichen virtuellen Maschine aktualisieren können.
@@ -88,6 +90,7 @@ link:task_install_deploy.html["ONTAP Select Deploy installieren"]
 
 
 
+[[step-3-restore-the-deploy-configuration-data-to-the-new-virtual-machine]]
 == Schritt 3: Stellen Sie die Deploy-Konfigurationsdaten auf der neuen virtuellen Maschine wieder her
 
 Sie müssen die Konfigurationsdaten von der ursprünglichen Deploy Utility-VM auf die neue virtuelle Maschine wiederherstellen. Die Daten befinden sich in einer einzigen Datei, die Sie von Ihrem lokalen Arbeitsplatzrechner hochladen müssen.

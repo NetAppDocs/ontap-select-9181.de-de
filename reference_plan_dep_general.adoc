@@ -18,6 +18,7 @@ Es gibt einige allgemeine Anforderungen, die Sie bei der Planung der Installatio
 
 
 
+[[pairing-the-deploy-utility-with-the-ontap-select-clusters]]
 == Kopplung des Deploy-Dienstprogramms mit den ONTAP Select Clustern
 
 Beim Koppeln einer Instanz des Deploy-Dienstprogramms mit den ONTAP Select Clustern stehen Ihnen mehrere Optionen zur Verfügung.
@@ -36,6 +37,7 @@ NOTE: Eine Instanz des Deploy-Dienstprogramms kann bis zu 400 ONTAP Select Nodes
 
 
 
+[[requirements-related-to-the-kvm-environment]]
 == Anforderungen im Zusammenhang mit der KVM-Umgebung
 
 Bevor Sie das Deploy-Verwaltungsprogramm in einer KVM-Hypervisor-Umgebung installieren, sollten Sie die grundlegenden Anforderungen überprüfen und die Bereitstellung vorbereiten.
@@ -70,6 +72,7 @@ ONTAP Select Deploy unterstützt ausschließlich IP Version 4 (IPv4). IP Version
 
 
 
+[[required-configuration-information]]
 == Erforderliche Konfigurationsinformationen
 
 Im Rahmen Ihrer Bereitstellungsplanung sollten Sie die erforderlichen Konfigurationsinformationen ermitteln, bevor Sie das ONTAP Select Deploy Verwaltungsprogramm installieren.
@@ -88,6 +91,7 @@ Das Netzwerk, mit dem die Deploy-VM verbunden ist.
 
 
 
+[[optional-network-configuration-information]]
 == Optionale Netzwerkkonfigurationsinformationen
 
 Die Deploy-VM wird standardmäßig über DHCP konfiguriert. Bei Bedarf können Sie die Netzwerkschnittstelle der VM jedoch manuell konfigurieren.
@@ -115,6 +119,7 @@ Die zu verwendenden Suchdomänen.
 
 
 
+[[authentication-using-the-credential-store]]
 == Authentifizierung mithilfe des Anmeldeinformationsspeichers
 
 Der ONTAP Select Deploy-Anmeldeinformationsspeicher ist eine Datenbank mit Kontoinformationen. Deploy verwendet diese Anmeldeinformationen zur Host-Authentifizierung im Rahmen der Clustererstellung und -verwaltung. Sie sollten sich mit der Verwendung des Anmeldeinformationsspeichers bei der Planung einer ONTAP Select-Bereitstellung vertraut machen.
