@@ -14,7 +14,7 @@ summary: ONTAP Select ist eine reine Softwareversion von ONTAP, die als virtuell
 
 
 [role="lead"]
-ONTAP Select ist eine reine Softwareversion von ONTAP, die Sie als virtuelle Maschine auf einem Hypervisor-Host bereitstellen können. Sie ergänzt die Suite der gängigen FAS, AFF und ASA ONTAP Angebote sowie andere reine Softwareoptionen wie Cloud Volumes ONTAP.
+ONTAP Select ist eine reine Softwareversion von ONTAP, die Sie als virtuelle Maschine auf einem Hypervisor-Host bereitstellen können. Sie ergänzt die gängigen AFF und FAS ONTAP Angebote sowie andere reine Softwareoptionen wie Cloud Volumes ONTAP.
 
 ONTAP Select wandelt interne Festplatten, NVMe-, SSD- oder HDD-Laufwerke sowie externe Array-Speicher in ein flexibles Speichersystem um, das viele der gleichen Vorteile bietet wie dedizierte ONTAP-Speichersysteme. Sie können ONTAP Select auch auf neuen Servern oder auf Ihrer bestehenden Serverinfrastruktur bereitstellen. ONTAP Select ist einfach zu verwalten und nutzt dieselbe Management-Software wie ONTAP basierte Lösungen, was geringeren Betriebsaufwand und weniger Schulungsbedarf bedeutet.
 
@@ -31,7 +31,7 @@ SnapMirror-Software ermöglicht es Ihnen, Daten zwischen ONTAP-Speichern in der 
 
 Die Implementierung und Bereitstellung von IT-Services über Software ermöglicht Administratoren, Ressourcen mit einer Geschwindigkeit und Agilität bereitzustellen, die zuvor nicht möglich war. Wenn moderne Rechenzentren zu einer softwaredefinierten Infrastruktur (SDI) übergehen, können Sie die wertvollsten IT-Ressourcen von der zugrunde liegenden physischen Infrastruktur trennen, was Flexibilität, Skalierbarkeit und Programmierbarkeit bietet.
 
-In einer Welt, in der Daten fragmentiert über Silos von direkt angeschlossenem Speicher (DAS) verteilt sind, sind Datenmobilität und -verwaltung zu komplexeren Problemen geworden. Software-defined Storage (SDS) hat sich als wichtiger Bestandteil der SDI-Landschaft etabliert, um diese und andere Probleme anzugehen.
+In einer Welt, in der Daten fragmentiert über Silos direkt angeschlossener Speichersysteme (DAS) verteilt sind, sind Datenzugriff und -verwaltung komplexer geworden. Software-defined Storage (SDS) hat sich als wichtiger Bestandteil der SDI-Landschaft etabliert, um diese und weitere Herausforderungen zu adressieren.
 
 ONTAP Select ist die NetApp Lösung für den SDS-Markt. ONTAP Select bringt Speichermanagementfunktionen der Enterprise-Klasse in das softwaredefinierte Rechenzentrum und erweitert die NetApp Data Fabric-Architektur auf extremste Anwendungsfälle, einschließlich des Internets der Dinge (IoT) und taktischer Server.
 
@@ -130,6 +130,7 @@ NOTE: Ab ONTAP Select 9.16.1 werden manuelle Aktualisierungen von ARP unterstüt
 +
 Jegliche Modifikation des Cluster-IPspace, einschließlich des Hinzufügens oder Entfernens von Ports, virtuellen LANs (VLANs) oder Link-Aggregation-Gruppen, wird nicht unterstützt.
 
+* Konsistenzgruppen in asynchronen SnapMirror
 * Fibre Channel
 +
 Fibre Channel und Fibre Channel over Ethernet werden nicht unterstützt.
@@ -153,7 +154,7 @@ Aufgrund der virtualisierten Umgebung, die mit ONTAP Select verwendet wird, wird
 Das Ändern der Eigenschaften der ONTAP-Ports, einschließlich Geschwindigkeit, Duplex und Flusssteuerung, wird nicht unterstützt.
 
 * Serviceprozessoren
-* SVM-Migration
+* SVM-Migrate
 * SnapLock Compliance
 * SnapMirror Active Sync
 * VMware HCX
